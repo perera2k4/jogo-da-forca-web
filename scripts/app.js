@@ -1,4 +1,102 @@
 const words = ["femur", "cranio", "tibia", "vertebra", "escapula", "clavicula", "costelas", "umero", "radio", "ulna", "fibula", "mandibula", "sacro", "coccix", "patela", "esfenoide", "hioide", "occipital", "etmoide", "talus", "zigomatico", "atlas", "halux", "axis", "escafoide", "calcaneo", "esterno", "pelve", "maxilar", "vomer"];
+const feedbackMessages = {
+    femur: "Parabéns! Você acertou o maior osso do corpo humano!",
+    cranio: "Ótimo trabalho! O crânio protege o cérebro.",
+    tibia: "Muito bem! A tíbia suporta o peso do corpo.",
+    vertebra: "Incrível! As vértebras protegem a medula espinhal.",
+    escapula: "Excelente! A escápula é essencial para o movimento dos braços.",
+    clavicula: "Boa! A clavícula conecta o braço ao tronco.",
+    costelas: "Fantástico! As costelas protegem órgãos vitais.",
+    umero: "Parabéns! O úmero é o osso mais longo do braço.",
+    radio: "Ótimo! O rádio é um dos ossos do antebraço.",
+    ulna: "Muito bem! A ulna ajuda na flexão do cotovelo.",
+    fibula: "Incrível! A fíbula é o osso fino da perna.",
+    mandibula: "Excelente! A mandíbula é o único osso móvel do crânio.",
+    sacro: "Boa! O sacro conecta a coluna à pelve.",
+    coccix: "Fantástico! O cóccix é o final da coluna vertebral.",
+    patela: "Parabéns! A patela protege o joelho.",
+    esfenoide: "Ótimo trabalho! O esfenoide forma a base do crânio.",
+    hioide: "Muito bem! O hioide é o único osso que não se conecta a outro.",
+    occipital: "Incrível! O occipital forma a base do crânio.",
+    etmoide: "Excelente! O etmoide separa o cérebro da cavidade nasal.",
+    talus: "Boa! O tálus forma o tornozelo.",
+    zigomatico: "Fantástico! O zigomático forma a maçã do rosto.",
+    atlas: "Parabéns! O atlas é a primeira vértebra cervical.",
+    halux: "Ótimo! O hálux é o dedo grande do pé.",
+    axis: "Muito bem! O áxis é a segunda vértebra cervical.",
+    escafoide: "Incrível! O escafoide é um osso do pulso.",
+    calcaneo: "Excelente! O calcâneo é o maior osso do tarso.",
+    esterno: "Boa! O esterno protege o coração e os pulmões.",
+    pelve: "Fantástico! A pelve sustenta o peso do corpo.",
+    maxilar: "Parabéns! O maxilar é essencial para mastigar.",
+    vomer: "Ótimo trabalho! O vômer forma o septo nasal."
+};
+const boneImages = {
+    cranio: "images/bones/cranio.png",
+    tibia: "images/bones/tibia.png",
+    femur: "images/bones/femur.png",
+    vertebra: "images/bones/vertebra.png",
+    escapula: "images/bones/escapula.png",
+    clavicula: "images/bones/clavicula.png",
+    costelas: "images/bones/costelas.png",
+    umero: "images/bones/umero.png",
+    radio: "images/bones/radio.png",
+    ulna: "images/bones/ulna.png",
+    fibula: "images/bones/fibula.png",
+    mandibula: "images/bones/mandibula.png",
+    sacro: "images/bones/sacro.png",
+    coccix: "images/bones/coccix.png",
+    patela: "images/bones/patela.png",
+    esfenoide: "images/bones/esfenoide.png",
+    hioide: "images/bones/hioide.png",
+    occipital: "images/bones/occipital.png",
+    etmoide: "images/bones/etmoide.png",
+    talus: "images/bones/talus.png",
+    zigomatico: "images/bones/zigomatico.png",
+    atlas: "images/bones/atlas.png",
+    halux: "images/bones/halux.png",
+    axis: "images/bones/axis.png",
+    escafoide: "images/bones/escafoide.png",
+    calcaneo: "images/bones/calcaneo.png",
+    esterno: "images/bones/esterno.png",
+    pelve: "images/bones/pelve.png",
+    maxilar: "images/bones/maxilar.png",
+    vomer: "images/bones/vomer.png"
+};
+
+const hints = {
+    femur: ["Dica 1 (Estrutural): Maior osso do corpo humano.", "Dica 2 (Função): Na parte proximal articula-se com o osso do quadril, e na parte distal com a patela e a tíbia.", "Dica 3 (Curiosidade): Trata-se do osso de maior comprimento e peso no esqueleto humano."],
+    cranio: ["Dica 1 (Estrutural): Conjunto ósseo que protege o cérebro e forma a cabeça.", "Dica 2 (Função): Composto por 22 ossos.", "Dica 3 (Curiosidade): Os ossos do crânio são divididos em dois grupos: o neurocrânio, formado por 8 ossos, e o viscerocrânio, formado por 14 ossos. "],
+    tibia: ["Dica 1 (Estrutural): Osso da perna, abaixo do joelho.", "Dica 2 (Função): Suporta o peso da parte superior do corpo.", "Dica 3 (Curiosidade): Na parte proximal articula-se com o fêmur e a fíbula, e na parte distal com o tálus e a fíbula."],
+    vertebra: ["Dica 1 (Estrutural): Constitui a coluna vertebral.", "Dica 2 (Função): Protege a medula espinhal.", "Dica 3 (Curiosidade): A coluna possui 33 vértebras no total, sendo 24 vértebras móveis e 9 vértebras fixas (osso sacrococcígeo)."],
+    escapula: ["Dica 1 (Estrutural): Osso chato localizado nas costas.", "Dica 2 (Função): Articula-se com o úmero e a clavícula.", "Dica 3 (Curiosidade): Forma a parte dorsal da cintura escapular."],
+    clavicula: ["Dica 1 (Estrutural): Osso longo e curvo, localizado horizontalmente acima da primeira costela.", "Dica 2 (Função): Constitui a parte ventral da cintura escapular.", "Dica 3 (Curiosidade): Único osso da cintura escapular que, através do esterno, se articula com o tórax."],
+    costelas: ["Dica 1 (Estrutural): São compostos por um agrupamento de 12 pares de ossos.", "Dica 2 (Função): Ossos longos e curvos que formam a caixa torácica, protegendo órgãos vitais como o coração e os pulmões.", "Dica 3 (Curiosidade): Os dois últimos pares de costelas são conhecidos como 'flutuantes' por não estarem ligados ao esterno."],
+    umero: ["Dica 1 (Estrutural): Osso longo do braço.", "Dica 2 (Função): Ele se conecta à escápula na articulação do ombro e ao rádio e à ulna na articulação do cotovelo.", "Dica 3 (Curiosidade): Trata-se do osso mais longo do membro superior."],
+    radio: ["Dica 1 (Estrutural): Osso da parte lateral do antebraço.", "Dica 2 (Função): Na parte proximal articula-se com o úmero e a ulna, e na parte distal com os ossos do carpo e a ulna.", "Dica 3 (Curiosidade): Juntamente com a ulna, compõe o antebraço."],
+    ulna: ["Dica 1 (Estrutural): Osso medial do antebraço, localizado paralelamente ao rádio.", "Dica 2 (Função): Juntamente com o úmero, forma a articulação do cotovelo.", "Dica 3 (Curiosidade): Auxilia na flexão e extensão do cotovelo."],
+    fibula: ["Dica 1 (Estrutural): Osso fino da perna, paralelo à tíbia.", "Dica 2 (Função): Localiza-se póstero-lateralmente à tíbia e tem como principal função a fixação de músculos.", "Dica 3 (Curiosidade): Está ligado à tíbia (proximal e distalmente) e ao tálus de forma distal."],
+    mandibula: ["Dica 1 (Estrutural): Único osso móvel da face.", "Dica 2 (Função): Permite a movimentação da boca.", "Dica 3 (Curiosidade): É um osso ímpar que contém a arcada dentária inferior."],
+    sacro: ["Dica 1 (Estrutural): Encontra-se na base da coluna vertebral.", "Dica 2 (Função): Conecta a coluna à pelve.", "Dica 3 (Curiosidade): Formado por cinco vértebras fundidas, assemelha-se a uma pirâmide, onde a base está voltada para cima e o ápice para baixo."],
+    coccix: ["Dica 1 (Estrutural): Está situado na porção inferior e final da coluna vertebral.", "Dica 2 (Função): Tem como função facilitar os movimentos entre ele e o sacro.", "Dica 3 (Curiosidade): Por meio da ligação com o sacro, forma a articulação sacrococcígea."],
+    patela: ["Dica 1 (Estrutural): Situado na face anterior do joelho.", "Dica 2 (Função): Protege a articulação do joelho.", "Dica 3 (Curiosidade): É considerada o maior osso sesamoides do corpo humano."],
+    esfenoide: ["Dica 1 (Estrutural): Osso localizado na base do crânio.", "Dica 2 (Função): Ajuda a formar a base do crânio e as órbitas oculares.", "Dica 3 (Curiosidade): Tem formato de um morcego."],
+    hioide: ["Dica 1 (Estrutural): Situa-se abaixo da mandíbula, na parte anterior do pescoço.", "Dica 2 (Função): Sua função é participar das atividades de deglutição, fala, mastigação e respiração.", "Dica 3 (Curiosidade): É o único dos 206 ossos do corpo humano que não estabelece uma conexão direta com outro osso, conectando-se apenas aos músculos ao seu redor."],
+    occipital: ["Dica 1 (Estrutural): Osso localizado na parte posterior do crânio.", "Dica 2 (Função): Forma a base do crânio.", "Dica 3 (Curiosidade): Contém o forame magno, abertura em formato oval, onde passa a medula espinhal."],
+    etmoide: ["Dica 1 (Estrutural): Osso que forma parte da cavidade nasal.", "Dica 2 (Função): Separa o cérebro da cavidade nasal.", "Dica 3 (Curiosidade): Tem uma estrutura esponjosa."],
+    talus: ["Dica 1 (Estrutural): Osso que ao articula-se com a tíbia e a fíbula, formando o tornozelo.", "Dica 2 (Função): Também articula-se com o calcâneo.", "Dica 3 (Curiosidade): A articulação talocrural, que liga os ossos tíbia, fíbula e tálus, permite que o pé realize movimentos de flexão plantar e dorsiflexão, funcionando como uma espécie de dobradiça."],
+    zigomatico: ["Dica 1 (Estrutural): Osso que forma a maçã do rosto.", "Dica 2 (Função): Proeminência que influencia no formato da bochecha e do assoalho da órbita.", "Dica 3 (Curiosidade): A ligação entre os ossos zigomático, temporal e maxilar constitui o arco zigomático, também conhecido como a 'maçã' do rosto."],
+    atlas: ["Dica 1 (Estrutural): 1º vértebra cervical.", "Dica 2 (Função): Forma a articulação atlantoccipital.", "Dica 3 (Curiosidade): O nome da articulação atlantoccipital é derivado da ligação entre a primeira vértebra (atlas) e o forame magno do osso occipital."],
+    halux: ["Dica 1 (Estrutural): 1º falange do membro inferior.", "Dica 2 (Função): Apenas 2 ossos compõem essa estrutura, a falange proximal e distal.", "Dica 3 (Curiosidade): Os dedos são formados pelas falanges, que são as extremidades finais dos membros inferiores."],
+    axis: ["Dica 1 (Estrutural): 2º vértebra da coluna cervical.", "Dica 2 (Função): Apresenta uma protuberância chamada 'dente' (processo odontoide).", "Dica 3 (Curiosidade): Articula-se com a atlas."],
+    escafoide: ["Dica 1 (Estrutural): Pequeno osso do carpo, localizado no pulso.", "Dica 2 (Função): Compõe a fileira proximal do ossos do carpo.", "Dica 3 (Curiosidade): O pulso é formado pelo conjunto de ossos do carpo no esqueleto humano."],
+    calcaneo: ["Dica 1 (Estrutural): Trata-se do maior osso do tarso.", "Dica 2 (Função): Todo o peso e impactos do corpo humano são absorvidos por esse osso.", "Dica 3 (Curiosidade): Articula-se com os ossos cuboide, o navicular e o tarso."],
+    esterno: ["Dica 1 (Estrutural): Osso localizado na parte central do tórax.", "Dica 2 (Função): Protege o coração e os pulmões.", "Dica 3 (Curiosidade): Osso plano e alongado, composto por 3 partes: manúbrio, corpo e processo xifoide."],
+    pelve: ["Dica 1 (Estrutural): Estrutura óssea do membro inferior, composta pelos dois ossos do quadril, ligados pela sínfise púbica e pelo sacro.", "Dica 2 (Função): Tem a função de sustentar o peso corporal e realizar locomoção, além de contribuir para o equilíbrio e a estabilidade do corpo.", "Dica 3 (Curiosidade): Também chamado de quadril, é o local onde os ossos ílio, ísquio e púbis se unem, dando origem à pelve."],
+    maxilar: ["Dica 1 (Estrutural): São fundamentais para a formação da órbita ocular, cavidade nasal e palato.", "Dica 2 (Função): As funções deste osso também estão associadas às atividades de mastigação e comunicação.", "Dica 3 (Curiosidade): É o único osso da face que se articula com outros 9 ossos do crânio, exceto a mandíbula. Dois localizados no neurocrânio (frontal e etmoide) e sete no viscerocrânio (nasal, lacrimal, zigomático, palatino, vômer, concha nasal inferior e maxila oposta)."],
+    vomer: ["Dica 1 (Estrutural): Forma o septo nasal.", "Dica 2 (Função): Posiciona-se verticalmente na cavidade nasal, dividindo-a em duas partes e estabelecendo a linha medial do viscerocrânio (esqueleto da face).", "Dica 3 (Curiosidade): A partir de sua parte anterior, o osso vômer estabelece conexões com quatro outros ossos cranianos: esfenoide, etmoide, maxilar e palatino."]
+};
+
 let selectedWord = "";
 let guessedLetters = [];
 let attemptsLeft = 6;
@@ -9,16 +107,7 @@ const attemptsDisplay = document.getElementById("attempts-display");
 const messageDisplay = document.getElementById("message-display");
 const restartButton = document.getElementById("restart-button");
 
-// Função para iniciar o jogo
-function startGame() {
-    selectedWord = words[Math.floor(Math.random() * words.length)];
-    guessedLetters = [];
-    attemptsLeft = 6;
-    messageDisplay.textContent = "";
-    alphabetContainer.innerHTML = "";
-    createAlphabet();
-    updateDisplay();
-}
+
 
 // Função para criar o alfabeto na tela
 function createAlphabet() {
@@ -68,39 +157,6 @@ restartButton.addEventListener("click", startGame);
 // Inicializa o jogo ao carregar a página
 window.addEventListener("load", startGame);
 
-const hints = {
-    femur: ["Dica 1 (Estrutural): Maior osso do corpo humano.", "Dica 2 (Função): Na parte proximal articula-se com o osso do quadril, e na parte distal com a patela e a tíbia.", "Dica 3 (Curiosidade): Trata-se do osso de maior comprimento e peso no esqueleto humano."],
-    cranio: ["Dica 1 (Estrutural): Conjunto ósseo que protege o cérebro e forma a cabeça.", "Dica 2 (Função): Composto por 22 ossos.", "Dica 3 (Curiosidade): Os ossos do crânio são divididos em dois grupos: o neurocrânio, formado por 8 ossos, e o viscerocrânio, formado por 14 ossos. "],
-    tibia: ["Dica 1 (Estrutural): Osso da perna, abaixo do joelho.", "Dica 2 (Função): Suporta o peso da parte superior do corpo.", "Dica 3 (Curiosidade): Na parte proximal articula-se com o fêmur e a fíbula, e na parte distal com o tálus e a fíbula."],
-    vertebra: ["Dica 1 (Estrutural): Constitui a coluna vertebral.", "Dica 2 (Função): Protege a medula espinhal.", "Dica 3 (Curiosidade): A coluna possui 33 vértebras no total, sendo 24 vértebras móveis e 9 vértebras fixas (osso sacrococcígeo)."],
-    escapula: ["Dica 1 (Estrutural): Osso chato localizado nas costas.", "Dica 2 (Função): Articula-se com o úmero e a clavícula.", "Dica 3 (Curiosidade): Forma a parte dorsal da cintura escapular."],
-    clavicula: ["Dica 1 (Estrutural): Osso longo e curvo, localizado horizontalmente acima da primeira costela.", "Dica 2 (Função): Constitui a parte ventral da cintura escapular.", "Dica 3 (Curiosidade): Único osso da cintura escapular que, através do esterno, se articula com o tórax."],
-    costelas: ["Dica 1 (Estrutural): São compostos por um agrupamento de 12 pares de ossos.", "Dica 2 (Função): Ossos longos e curvos que formam a caixa torácica, protegendo órgãos vitais como o coração e os pulmões.", "Dica 3 (Curiosidade): Os dois últimos pares de costelas são conhecidos como 'flutuantes' por não estarem ligados ao esterno."],
-    umero: ["Dica 1 (Estrutural): Osso longo do braço.", "Dica 2 (Função): Ele se conecta à escápula na articulação do ombro e ao rádio e à ulna na articulação do cotovelo.", "Dica 3 (Curiosidade): Trata-se do osso mais longo do membro superior."],
-    radio: ["Dica 1 (Estrutural): Osso da parte lateral do antebraço.", "Dica 2 (Função): Na parte proximal articula-se com o úmero e a ulna, e na parte distal com os ossos do carpo e a ulna.", "Dica 3 (Curiosidade): Juntamente com a ulna, compõe o antebraço."],
-    ulna: ["Dica 1 (Estrutural): Osso medial do antebraço, localizado paralelamente ao rádio.", "Dica 2 (Função): Juntamente com o úmero, forma a articulação do cotovelo.", "Dica 3 (Curiosidade): Auxilia na flexão e extensão do cotovelo."],
-    fibula: ["Dica 1 (Estrutural): Osso fino da perna, paralelo à tíbia.", "Dica 2 (Função): Localiza-se póstero-lateralmente à tíbia e tem como principal função a fixação de músculos.", "Dica 3 (Curiosidade): Está ligado à tíbia (proximal e distalmente) e ao tálus de forma distal."],
-    mandibula: ["Dica 1 (Estrutural): Único osso móvel da face.", "Dica 2 (Função): Permite a movimentação da boca.", "Dica 3 (Curiosidade): É um osso ímpar que contém a arcada dentária inferior."],
-    sacro: ["Dica 1 (Estrutural): Encontra-se na base da coluna vertebral.", "Dica 2 (Função): Conecta a coluna à pelve.", "Dica 3 (Curiosidade): Formado por cinco vértebras fundidas, assemelha-se a uma pirâmide, onde a base está voltada para cima e o ápice para baixo."],
-    coccix: ["Dica 1 (Estrutural): Está situado na porção inferior e final da coluna vertebral.", "Dica 2 (Função): Tem como função facilitar os movimentos entre ele e o sacro.", "Dica 3 (Curiosidade): Por meio da ligação com o sacro, forma a articulação sacrococcígea."],
-    patela: ["Dica 1 (Estrutural): Situado na face anterior do joelho.", "Dica 2 (Função): Protege a articulação do joelho.", "Dica 3 (Curiosidade): É considerada o maior osso sesamoides do corpo humano."],
-    esfenoide: ["Dica 1 (Estrutural): Osso localizado na base do crânio.", "Dica 2 (Função): Ajuda a formar a base do crânio e as órbitas oculares.", "Dica 3 (Curiosidade): Tem formato de um morcego."],
-    hioide: ["Dica 1 (Estrutural): Situa-se abaixo da mandíbula, na parte anterior do pescoço.", "Dica 2 (Função): Sua função é participar das atividades de deglutição, fala, mastigação e respiração.", "Dica 3 (Curiosidade): É o único dos 206 ossos do corpo humano que não estabelece uma conexão direta com outro osso, conectando-se apenas aos músculos ao seu redor."],
-    occipital: ["Dica 1 (Estrutural): Osso localizado na parte posterior do crânio.", "Dica 2 (Função): Forma a base do crânio.", "Dica 3 (Curiosidade): Contém o forame magno, abertura em formato oval, onde passa a medula espinhal."],
-    etmoide: ["Dica 1 (Estrutural): Osso que forma parte da cavidade nasal.", "Dica 2 (Função): Separa o cérebro da cavidade nasal.", "Dica 3 (Curiosidade): Tem uma estrutura esponjosa."],
-    talus: ["Dica 1 (Estrutural): Osso que ao articula-se com a tíbia e a fíbula, formando o tornozelo.", "Dica 2 (Função): Também articula-se com o calcâneo.", "Dica 3 (Curiosidade): A articulação talocrural, que liga os ossos tíbia, fíbula e tálus, permite que o pé realize movimentos de flexão plantar e dorsiflexão, funcionando como uma espécie de dobradiça."],
-    zigomatico: ["Dica 1 (Estrutural): Osso que forma a maçã do rosto.", "Dica 2 (Função): Proeminência que influencia no formato da bochecha e do assoalho da órbita.", "Dica 3 (Curiosidade): A ligação entre os ossos zigomático, temporal e maxilar constitui o arco zigomático, também conhecido como a 'maçã' do rosto."],
-    atlas: ["Dica 1 (Estrutural): 1º vértebra cervical.", "Dica 2 (Função): Forma a articulação atlantoccipital.", "Dica 3 (Curiosidade): O nome da articulação atlantoccipital é derivado da ligação entre a primeira vértebra (atlas) e o forame magno do osso occipital."],
-    halux: ["Dica 1 (Estrutural): 1º falange do membro inferior.", "Dica 2 (Função): Apenas 2 ossos compõem essa estrutura, a falange proximal e distal.", "Dica 3 (Curiosidade): Os dedos são formados pelas falanges, que são as extremidades finais dos membros inferiores."],
-    axis: ["Dica 1 (Estrutural): 2º vértebra da coluna cervical.", "Dica 2 (Função): Apresenta uma protuberância chamada 'dente' (processo odontoide).", "Dica 3 (Curiosidade): Articula-se com a atlas."],
-    escafoide: ["Dica 1 (Estrutural): Pequeno osso do carpo, localizado no pulso.", "Dica 2 (Função): Compõe a fileira proximal do ossos do carpo.", "Dica 3 (Curiosidade): O pulso é formado pelo conjunto de ossos do carpo no esqueleto humano."],
-    calcaneo: ["Dica 1 (Estrutural): Trata-se do maior osso do tarso.", "Dica 2 (Função): Todo o peso e impactos do corpo humano são absorvidos por esse osso.", "Dica 3 (Curiosidade): Articula-se com os ossos cuboide, o navicular e o tarso."],
-    esterno: ["Dica 1 (Estrutural): Osso localizado na parte central do tórax.", "Dica 2 (Função): Protege o coração e os pulmões.", "Dica 3 (Curiosidade): Osso plano e alongado, composto por 3 partes: manúbrio, corpo e processo xifoide."],
-    pelve: ["Dica 1 (Estrutural): Estrutura óssea do membro inferior, composta pelos dois ossos do quadril, ligados pela sínfise púbica e pelo sacro.", "Dica 2 (Função): Tem a função de sustentar o peso corporal e realizar locomoção, além de contribuir para o equilíbrio e a estabilidade do corpo.", "Dica 3 (Curiosidade): Também chamado de quadril, é o local onde os ossos ílio, ísquio e púbis se unem, dando origem à pelve."],
-    maxilar: ["Dica 1 (Estrutural): São fundamentais para a formação da órbita ocular, cavidade nasal e palato.", "Dica 2 (Função): As funções deste osso também estão associadas às atividades de mastigação e comunicação.", "Dica 3 (Curiosidade): É o único osso da face que se articula com outros 9 ossos do crânio, exceto a mandíbula. Dois localizados no neurocrânio (frontal e etmoide) e sete no viscerocrânio (nasal, lacrimal, zigomático, palatino, vômer, concha nasal inferior e maxila oposta)."],
-    vomer: ["Dica 1 (Estrutural): Forma o septo nasal.", "Dica 2 (Função): Posiciona-se verticalmente na cavidade nasal, dividindo-a em duas partes e estabelecendo a linha medial do viscerocrânio (esqueleto da face).", "Dica 3 (Curiosidade): A partir de sua parte anterior, o osso vômer estabelece conexões com quatro outros ossos cranianos: esfenoide, etmoide, maxilar e palatino."],
-};
-
 let currentHintIndex = 0;
 
 const hintContainer = document.getElementById("hint-container");
@@ -114,35 +170,23 @@ function startGame() {
     messageDisplay.textContent = "";
     alphabetContainer.innerHTML = "";
     hintContainer.innerHTML = ""; // Limpa as dicas
+
+    hintContainer.classList.remove("hidden");
+
+    // Limpa a imagem exibida
+    const imageContainer = document.getElementById("image-container");
+    if (imageContainer) {
+        imageContainer.innerHTML = ""; // Remove qualquer imagem anterior
+    }
+
+    // Atualiza a imagem inicial das tentativas
+    updateAttemptsImage();
+
     createAlphabet();
     updateDisplay();
 }
 
-// Atualize a função `handleGuess` para exibir as dicas
-function handleGuess(letter, letterElement) {
-    if (guessedLetters.includes(letter)) return;
 
-    guessedLetters.push(letter);
-
-    if (selectedWord.includes(letter)) {
-        letterElement.classList.add("correct");
-        updateWordDisplay(letter);
-        if (isWordComplete()) {
-            messageDisplay.textContent = "Parabéns! Você adivinhou a palavra!";
-            disableAlphabet();
-        }
-    } else {
-        letterElement.classList.add("wrong");
-        attemptsLeft--;
-        showHint(); // Exibe a dica ao errar
-        if (attemptsLeft === 0) {
-            messageDisplay.textContent = `Fim de jogo! A palavra era "${selectedWord}".`;
-            disableAlphabet();
-        }
-    }
-
-    updateDisplay();
-}
 
 // Função para exibir a dica
 function showHint() {
@@ -153,5 +197,57 @@ function showHint() {
         hintElement.classList.add("hint");
         hintContainer.appendChild(hintElement); // Adiciona a nova dica ao contêiner
         currentHintIndex++;
+    }
+}
+
+function handleGuess(letter, letterElement) {
+    if (guessedLetters.includes(letter)) return;
+
+    guessedLetters.push(letter);
+
+    if (selectedWord.includes(letter)) {
+        letterElement.classList.add("correct");
+        updateWordDisplay(letter);
+        if (isWordComplete()) {
+            hintContainer.classList.add("hidden");
+            const feedback = feedbackMessages[selectedWord] || "Parabéns! Você acertou a palavra!";
+            messageDisplay.textContent = feedback; // Exibe a mensagem de feedback
+
+            // Exibe a imagem correspondente
+            const imageContainer = document.getElementById("image-container");
+            imageContainer.innerHTML = ""; // Limpa qualquer imagem anterior
+            const imgElement = document.createElement("img");
+            imgElement.src = boneImages[selectedWord]; // Define a URL da imagem
+            imgElement.alt = selectedWord; // Define o texto alternativo
+            imgElement.classList.add("bone-image"); // Adiciona uma classe para estilização
+            imageContainer.appendChild(imgElement);
+
+            disableAlphabet();
+        }
+    } else {
+        letterElement.classList.add("wrong");
+        attemptsLeft--;
+        updateAttemptsImage(); // Atualiza a imagem das tentativas restantes
+        showHint(); // Exibe a dica ao errar
+        if (attemptsLeft === 0) {
+            messageDisplay.textContent = `Fim de jogo! A palavra era "${selectedWord}".`;
+            disableAlphabet();
+            hintContainer.classList.add("hidden");
+        }
+    }
+
+    updateDisplay();
+}
+
+function updateAttemptsImage() {
+    const attemptsImageContainer = document.getElementById("attempts-image-container");
+    attemptsImageContainer.innerHTML = ""; // Limpa a imagem anterior
+
+    if (attemptsLeft >= 0) {
+        const imgElement = document.createElement("img");
+        imgElement.src = `images/hanged/${attemptsLeft+1}.png`; // Define a imagem correspondente às tentativas restantes
+        imgElement.alt = `Tentativas restantes: ${attemptsLeft}`;
+        imgElement.classList.add("attempts-image"); // Adiciona uma classe para estilização
+        attemptsImageContainer.appendChild(imgElement);
     }
 }
