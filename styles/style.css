@@ -208,3 +208,18 @@ h1 {
     border: 2px solid #ccc;
     border-radius: 10px;
 }
+
+@media (max-width: 480px) {
+    .hint-container {
+        position: absolute; /* Altere para absoluto para maior flexibilidade */
+        top: 10px; /* Posicione no topo da tela */
+        left: 10px; /* Adicione margem lateral */
+        right: 10px; /* Adicione margem lateral */
+        bottom: auto; /* Remova o posicionamento inferior */
+        padding: 8px; /* Reduza o espaçamento interno */
+        font-size: 12px; /* Reduza o tamanho da fonte */
+        max-height: 100px; /* Limite a altura máxima */
+        overflow-y: auto; /* Adicione rolagem vertical, se necessário */
+        background-color: rgba(0, 0, 0, 0.8); /* Torne o fundo mais visível */
+    }
+}
