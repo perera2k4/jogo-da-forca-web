@@ -1,0 +1,193 @@
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.game-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.word-display {
+    font-size: 24px;
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+    word-wrap: break-word;
+}
+
+.alphabet-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.alphabet-letter {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.3s, color 0.3s;
+    text-transform: uppercase; /* Exibe as letras em maiúsculas */
+}
+
+.alphabet-letter.correct {
+    background-color: #4caf50;
+    color: white;
+    pointer-events: none;
+}
+
+.alphabet-letter.wrong {
+    background-color: #f44336;
+    color: white;
+    pointer-events: none;
+}
+
+.attempts {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.message {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.restart-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.restart-button:hover {
+    background-color: #0056b3;
+}
+
+.hint-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    max-width: 300px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.hint {
+    background-color: #696969;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInSlide 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeInSlide {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsividade */
+
+/* Para telas menores que 768px (dispositivos móveis) */
+@media (max-width: 768px) {
+    .game-container {
+        margin: 20px;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    .word-display {
+        font-size: 20px;
+        letter-spacing: 3px;
+    }
+
+    .alphabet-letter {
+        font-size: 16px;
+        padding: 8px;
+    }
+
+    .restart-button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .hint-container {
+        bottom: 10px;
+        right: 10px;
+        padding: 10px;
+        font-size: 12px;
+    }
+}
+
+/* Para telas menores que 480px (telas muito pequenas) */
+@media (max-width: 480px) {
+    .game-container {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+
+    .word-display {
+        font-size: 18px;
+        letter-spacing: 2px;
+    }
+
+    .alphabet-letter {
+        font-size: 14px;
+        padding: 6px;
+    }
+
+    .restart-button {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    .hint-container {
+        bottom: 5px;
+        right: 5px;
+        padding: 8px;
+        font-size: 10px;
+    }
+}
