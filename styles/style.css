@@ -213,29 +213,26 @@ h1 {
     body {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        height: 100vh;
+        justify-content: flex-start; /* Alinha os elementos no topo */
+        height: auto; /* Permite que o conteúdo cresça conforme necessário */
         margin: 0;
     }
 
     .game-container {
-        flex: 1;
-        overflow-y: auto;
-        margin-bottom: 100px;
+        margin: 10px; /* Adiciona margem ao redor */
+        padding: 10px;
     }
 
     .hint-container {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        margin-top: 10px;
+        margin: 10px auto; /* Centraliza horizontalmente */
         padding: 10px;
         font-size: 12px;
+        background-color: rgba(0, 0, 0, 0.8); /* Fundo escuro para destaque */
         color: #fff;
-        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
-        max-height: 100px;
-        overflow-y: auto;
-        z-index: 1000;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra */
+        max-width: 90%; /* Limita a largura */
+        max-height: 100px; /* Limita a altura */
+        overflow-y: auto; /* Adiciona rolagem vertical, se necessário */
     }
 }
