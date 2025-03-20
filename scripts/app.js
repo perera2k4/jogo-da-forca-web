@@ -1,36 +1,38 @@
 const words = ["femur", "cranio", "tibia", "vertebra", "escapula", "clavicula", "costelas", "umero", "radio", "ulna", "fibula", "mandibula", "sacro", "coccix", "patela", "esfenoide", "hioide", "occipital", "etmoide", "talus", "zigomatico", "atlas", "halux", "axis", "escafoide", "calcaneo", "esterno", "pelve", "maxilar", "vomer"];
+
 const feedbackMessages = {
-    femur: "Parabéns! Você acertou o maior osso do corpo humano!",
-    cranio: "Ótimo trabalho! O crânio protege o cérebro.",
-    tibia: "Muito bem! A tíbia suporta o peso do corpo.",
-    vertebra: "Incrível! As vértebras protegem a medula espinhal.",
-    escapula: "Excelente! A escápula é essencial para o movimento dos braços.",
-    clavicula: "Boa! A clavícula conecta o braço ao tronco.",
-    costelas: "Fantástico! As costelas protegem órgãos vitais.",
-    umero: "Parabéns! O úmero é o osso mais longo do braço.",
-    radio: "Ótimo! O rádio é um dos ossos do antebraço.",
-    ulna: "Muito bem! A ulna ajuda na flexão do cotovelo.",
-    fibula: "Incrível! A fíbula é o osso fino da perna.",
-    mandibula: "Excelente! A mandíbula é o único osso móvel do crânio.",
-    sacro: "Boa! O sacro conecta a coluna à pelve.",
-    coccix: "Fantástico! O cóccix é o final da coluna vertebral.",
-    patela: "Parabéns! A patela protege o joelho.",
-    esfenoide: "Ótimo trabalho! O esfenoide forma a base do crânio.",
-    hioide: "Muito bem! O hioide é o único osso que não se conecta a outro.",
-    occipital: "Incrível! O occipital forma a base do crânio.",
-    etmoide: "Excelente! O etmoide separa o cérebro da cavidade nasal.",
-    talus: "Boa! O tálus forma o tornozelo.",
-    zigomatico: "Fantástico! O zigomático forma a maçã do rosto.",
-    atlas: "Parabéns! O atlas é a primeira vértebra cervical.",
-    halux: "Ótimo! O hálux é o dedo grande do pé.",
-    axis: "Muito bem! O áxis é a segunda vértebra cervical.",
-    escafoide: "Incrível! O escafoide é um osso do pulso.",
-    calcaneo: "Excelente! O calcâneo é o maior osso do tarso.",
-    esterno: "Boa! O esterno protege o coração e os pulmões.",
-    pelve: "Fantástico! A pelve sustenta o peso do corpo.",
-    maxilar: "Parabéns! O maxilar é essencial para mastigar.",
-    vomer: "Ótimo trabalho! O vômer forma o septo nasal."
-};
+    femur: "Parabéns! O fêmur desempenha um papel fundamental na locomoção e sustentação do corpo.",
+    cranio: "Ótimo trabalho! O crânio abriga e protege o cérebro e outros órgãos sensoriais como os olhos, ouvidos e nariz.",
+    tibia: "Muito bem! Também chamado de canela, é o segundo maior osso do corpo.",
+    vertebra: "Incrível! A coluna vertebral é estruturada para proporcionar rigidez e estabilidade ao esqueleto humano, desempenhando o papel de sustentar toda a parte superior do corpo, além de oferecer flexibilidade para se dobrar, girar e retorcer.",
+    escapula: "Excelente! A escápula permite a movimentação dos braços e é importante para a mobilidade do ombro.",
+    clavicula: "Boa! A clavícula é crucial para estabilizar o ombro e permitir o movimento dos braços.",
+    costelas: "Fantástico! As costelas desempenham um papel crucial na proteção dos órgãos vitais e na respiração, auxiliando na expansão e contração dos pulmões durante a ventilação.",
+    umero: "Parabéns! O úmero está ligado ao ombro e cotovelo, possibilitando a movimentação dos braços.",
+    radio: "Ótimo! O rádio é essencial para a mobilidade do braço, permitindo movimentos como a rotação da mão.",
+    ulna: "Muito bem! A ulna, junto com o rádio, permite o movimento de dobrar e estender o braço.",
+    fibula: "Incrível! A fíbula ajuda a estabilizar a articulação do tornozelo, complementando a tíbia.",
+    mandibula: "Excelente! A mandíbula é essencial para a mastigação e fala, sendo o único osso móvel do crânio.",
+    sacro: "Boa! O sacro desempenha um papel fundamental na estabilidade do corpo.",
+    coccix: "Fantástico! A conexão entre o sacro e o cóccix é feita através de tecido conjuntivo e é mantida por um disco intervertebral.",
+    patela: "Parabéns! A patela é um osso essencial para a movimentação e proteção do joelho.",
+    esfenoide: "Ótimo trabalho! Na região do corpo do osso, o esfenoide contém um elemento ósseo conhecido como 'sela túrcica', que abriga uma importante glândula do sistema endócrino: a hipófise.",
+    hioide: "Muito bem! O osso hioide é um elemento crucial para o funcionamento adequado dos sistemas respiratório e digestivo.",
+    occipital: "Incrível! A abertura por meio do forame magno, permite a comunicação entre o sistema nervoso e todas as outras regiões do corpo humano.",
+    etmoide: "Excelente! O etmoide é fundamental para o sistema respiratório e olfativo.",
+    talus: "Boa! Os ligamentos localizados no esqueleto do pé que provêm da perna ajudam esses ossos a executar os movimentos articulares do tornozelo, permitindo que ele cumpra sua função no sistema locomotor humano.",
+    zigomatico: "Fantástico! O osso zigomático é encontrado aos pares no viscerocrânio, um de cada lado do crânio. Possui uma estrutura irregular e compõe a parte lateral inferior da órbita ocular.",
+    atlas: "Parabéns! A articulação atlantoccipital possibilita que o crânio execute movimentos de flexão e extensão, contribuindo para a mobilidade do crânio.",
+    halux: "Ótimo! As falanges se conectam ao metatarso por meio da sua extremidade distal.",
+    axis: "Muito bem! O áxis, em conjunto com o atlas, proporciona uma gama de movimentos para a cabeça e pescoço, sendo essenciais para a mobilidade cervical.",
+    escafoide: "Incrível! Existem duas fileiras paralelas de ossos carpais: uma proximal, ligada ao braço (rádio), e a distal ligada aos metacarpos.",
+    calcaneo: "Excelente! O tendão de Aquiles está inserido no calcâneo, responsável por movimentos como caminhar, correr e saltar.",
+    esterno: "Boa! O esterno conectado às costelas formam a caixa torácica, sendo importante para proteger órgãos vitais como o coração e os pulmões.",
+    pelve: "Fantástico! A cintura pélvica, que é constituída pelo osso ilíaco, faz parte do esqueleto apendicular inferior. Esta cintura liga os membros inferiores ao tronco.",
+    maxilar: "Parabéns! O maxilar é  considerado um dos ossos mais importantes da face porque sustenta os dentes superiores e forma parte fundamental da estrutura do rosto, além de contribuir para funções como mastigação e fala.",
+    vomer: "Ótimo trabalho! O osso vômer está situado no centro do crânio humano, acima dos ossos palatinos, constituindo as partes posteriores e inferiores da cavidade nasal.",
+}
+
 const boneImages = {
     cranio: "images/bones/cranio.png",
     tibia: "images/bones/tibia.png",
@@ -107,9 +109,6 @@ const attemptsDisplay = document.getElementById("attempts-display");
 const messageDisplay = document.getElementById("message-display");
 const restartButton = document.getElementById("restart-button");
 
-
-
-// Função para criar o alfabeto na tela
 function createAlphabet() {
     const alphabet = "abcdefghijklmnopqrstuvwxyz";
     alphabet.split("").forEach(letter => {
@@ -121,7 +120,6 @@ function createAlphabet() {
     });
 }
 
-// Atualiza a exibição da palavra
 function updateWordDisplay(letter) {
     const wordArray = selectedWord.split("");
     const displayArray = wordDisplay.textContent.split(" ");
@@ -133,69 +131,58 @@ function updateWordDisplay(letter) {
     wordDisplay.textContent = displayArray.join(" ");
 }
 
-// Verifica se a palavra foi completamente adivinhada
 function isWordComplete() {
     return !wordDisplay.textContent.includes("_");
 }
 
-// Atualiza a exibição de tentativas e palavra
 function updateDisplay() {
     const displayWord = selectedWord.split("").map(letter => (guessedLetters.includes(letter) ? letter : "_")).join(" ");
     wordDisplay.textContent = displayWord;
     attemptsDisplay.textContent = `Tentativas restantes: ${attemptsLeft}`;
 }
 
-// Desabilita o alfabeto após o jogo terminar
 function disableAlphabet() {
     const letters = document.querySelectorAll(".alphabet-letter");
     letters.forEach(letter => letter.style.pointerEvents = "none");
 }
 
-// Reinicia o jogo
 restartButton.addEventListener("click", startGame);
 
-// Inicializa o jogo ao carregar a página
 window.addEventListener("load", startGame);
 
 let currentHintIndex = 0;
 
 const hintContainer = document.getElementById("hint-container");
 
-// Atualize a função `startGame` para reiniciar o índice de dicas
 function startGame() {
     selectedWord = words[Math.floor(Math.random() * words.length)];
     guessedLetters = [];
     attemptsLeft = 6;
-    currentHintIndex = 0; // Reinicia o índice de dicas
+    currentHintIndex = 0;
     messageDisplay.textContent = "";
     alphabetContainer.innerHTML = "";
-    hintContainer.innerHTML = ""; // Limpa as dicas
+    hintContainer.innerHTML = "";
 
     hintContainer.classList.remove("hidden");
 
-    // Limpa a imagem exibida
     const imageContainer = document.getElementById("image-container");
     if (imageContainer) {
-        imageContainer.innerHTML = ""; // Remove qualquer imagem anterior
+        imageContainer.innerHTML = "";
     }
 
-    // Atualiza a imagem inicial das tentativas
     updateAttemptsImage();
 
     createAlphabet();
     updateDisplay();
 }
 
-
-
-// Função para exibir a dica
 function showHint() {
     const wordHints = hints[selectedWord];
     if (wordHints && currentHintIndex < wordHints.length) {
         const hintElement = document.createElement("div");
         hintElement.textContent = wordHints[currentHintIndex];
         hintElement.classList.add("hint");
-        hintContainer.appendChild(hintElement); // Adiciona a nova dica ao contêiner
+        hintContainer.appendChild(hintElement); 
         currentHintIndex++;
     }
 }
@@ -211,15 +198,14 @@ function handleGuess(letter, letterElement) {
         if (isWordComplete()) {
             hintContainer.classList.add("hidden");
             const feedback = feedbackMessages[selectedWord] || "Parabéns! Você acertou a palavra!";
-            messageDisplay.textContent = feedback; // Exibe a mensagem de feedback
+            messageDisplay.textContent = feedback;
 
-            // Exibe a imagem correspondente
             const imageContainer = document.getElementById("image-container");
-            imageContainer.innerHTML = ""; // Limpa qualquer imagem anterior
+            imageContainer.innerHTML = ""; 
             const imgElement = document.createElement("img");
-            imgElement.src = boneImages[selectedWord]; // Define a URL da imagem
-            imgElement.alt = selectedWord; // Define o texto alternativo
-            imgElement.classList.add("bone-image"); // Adiciona uma classe para estilização
+            imgElement.src = boneImages[selectedWord]; 
+            imgElement.alt = selectedWord; 
+            imgElement.classList.add("bone-image"); 
             imageContainer.appendChild(imgElement);
 
             disableAlphabet();
@@ -227,8 +213,8 @@ function handleGuess(letter, letterElement) {
     } else {
         letterElement.classList.add("wrong");
         attemptsLeft--;
-        updateAttemptsImage(); // Atualiza a imagem das tentativas restantes
-        showHint(); // Exibe a dica ao errar
+        updateAttemptsImage();
+        showHint();
         if (attemptsLeft === 0) {
             messageDisplay.textContent = `Fim de jogo! A palavra era "${selectedWord}".`;
             disableAlphabet();
@@ -241,13 +227,13 @@ function handleGuess(letter, letterElement) {
 
 function updateAttemptsImage() {
     const attemptsImageContainer = document.getElementById("attempts-image-container");
-    attemptsImageContainer.innerHTML = ""; // Limpa a imagem anterior
+    attemptsImageContainer.innerHTML = "";
 
     if (attemptsLeft >= 0) {
         const imgElement = document.createElement("img");
-        imgElement.src = `images/hanged/${attemptsLeft+1}.png`; // Define a imagem correspondente às tentativas restantes
+        imgElement.src = `images/hanged/${attemptsLeft+1}.png`;
         imgElement.alt = `Tentativas restantes: ${attemptsLeft}`;
-        imgElement.classList.add("attempts-image"); // Adiciona uma classe para estilização
+        imgElement.classList.add("attempts-image"); 
         attemptsImageContainer.appendChild(imgElement);
     }
 }
