@@ -221,6 +221,7 @@ h1 {
     .game-container {
         flex: 1; /* Faz com que o jogo ocupe o espaço disponível */
         overflow-y: auto; /* Permite rolagem, caso necessário */
+        margin-bottom: 60px;
     }
 
     .hint-container {
